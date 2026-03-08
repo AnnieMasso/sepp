@@ -2,8 +2,10 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Transition } from '@headlessui/react';
+import { ListboxButton, MenuButton, Transition } from '@headlessui/react';
 import { Link, useForm, usePage } from '@inertiajs/react';
+import SelectScrollDownButton from '@/components/SecondaryButton';
+// import { SelectScrollDownButton } from '@radix-ui/react-select';
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
@@ -93,7 +95,8 @@ export default function UpdateProfileInformation({
                 )}
 
                 <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                    <button className='bg-blue-700 p-1 text-white w-fit uppercase text-sm rounded' disabled={processing}>Save</button>
+                    
 
                     <Transition
                         show={recentlySuccessful}
