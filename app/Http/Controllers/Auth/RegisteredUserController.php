@@ -28,6 +28,7 @@ class RegisteredUserController extends Controller
         ]);
     }
 
+
     /**
      * Handle an incoming registration request.
      *
@@ -35,6 +36,8 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // dd($request->all());
+        // dd(UserRules::array());
         $values = array_column(UserRules::array(), 'value');
         $request->validate([
             'role' => ['required', Rule::in($values)],
@@ -44,11 +47,12 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
-            'role' => $request->role,
+            'role' => $request->input('role'),
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        // dd($user->getAttributes());
 
         event(new Registered($user));
 
