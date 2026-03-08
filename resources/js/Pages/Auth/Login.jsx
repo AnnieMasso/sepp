@@ -81,7 +81,10 @@ export default function Login({ status, canResetPassword }) {
                     </label>
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
+                <div className="mt-4 grid grid-flow-col items-center">
+                    <Link href={route('register')} className='rounded-md text-sm text-[#1037c0] underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
+                        Pas de compte ?
+                    </Link>
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}

@@ -25,8 +25,8 @@ export default function Register() {
     };
 
     const {roles} = usePage().props;
-    const rolesToRender = roles || [];
-    const handleRoleChange = (e) => {
+    const resultatRole = roles || [];
+    const RoleChange = (e) => {
         setData('role', e.target.value);
     };
     // const [selectedRule, setSelectedRule] = useState('')
@@ -42,15 +42,16 @@ export default function Register() {
                     <InputLabel htmlFor="name" className='mt-7' value="Choisissez un type de compte" />
 
                     <select
+                        name='role'
                         id="role_select" // Ajoutez un id pour l'InputLabel
                         className="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" // Styles basiques pour un select
                         value={data.role} // Liez la valeur au state
-                        onChange={handleRoleChange} // Gérez le changement
+                        onChange={RoleChange} // Gérez le changement
                         required
                     >
                         <option value="">Sélectionner un rôle</option> {/* Option par défaut */}
-                        {/* Utilisez rolesToRender ici */}
-                        {rolesToRender.map(({ value, label }) => (
+                        {/* Utilisez resultatRole ici */}
+                        {resultatRole.map(({ value, label }) => (
                             <option key={value} value={value}>
                                 {label}
                             </option>
