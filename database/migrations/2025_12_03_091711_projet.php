@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nom');
             $table->text('description_projet');
             $table->integer('montant');
+            $table->string('etat')->default('Non commencé');
             $table->unsignedBigInteger('id_client');
             $table->unsignedBigInteger('id_chef_projet');
             $table->timestamps();
