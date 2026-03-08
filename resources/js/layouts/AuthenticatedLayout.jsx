@@ -4,6 +4,7 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
+import { FaComment, FaCommentAlt, FaCommentDollar, FaCommentDots, FaCommentMedical, FaCommentSlash, FaMailBulk, FaRegComment } from 'react-icons/fa';
 
 export default function AuthenticatedLayout({ header, children }) {
     const user = usePage().props.auth.user;
@@ -12,8 +13,8 @@ export default function AuthenticatedLayout({ header, children }) {
         useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <nav className="border-b border-gray-100 bg-white">
+        <div className=" bg-gray-100">
+            <nav className="border border-gray-100 bg-white">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 justify-between">
                         <div className="flex">
@@ -34,7 +35,12 @@ export default function AuthenticatedLayout({ header, children }) {
                         </div>
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
-                            <div className="relative ms-3">
+                            <div className="relative ms-3 flex">
+                                <button className='relative mr-3'>
+                                    <span className='bg-red-500 ml-1 -mt-1 absolute rounded-full w-3 h-3'></span>
+                                    <FaCommentDots className='size-6'></FaCommentDots>
+                                    
+                                </button>
                                 <Dropdown>
                                     <Dropdown.Trigger>
                                         <span className="inline-flex rounded-md">
@@ -45,7 +51,7 @@ export default function AuthenticatedLayout({ header, children }) {
                                                 {user.name}
 
                                                 <svg
-                                                    className="-me-0.5 ms-2 h-4 w-4"
+                                                    className="-me-0.5 ms-2 h-4 w-4 text-blue-700"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 20 20"
                                                     fill="currentColor"
