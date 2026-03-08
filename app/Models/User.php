@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use App\UserRules;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 // use App\UserRules as AppUserRules;
 
 class User extends Authenticatable
@@ -21,15 +23,16 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        // 'role',
+        'exist',
+        'role',
         'name',
         'email',
         'password',
     ];
 
-    protected $casts = [
-        'role' => UserRules::class,
-    ];
+    // protected $casts = [
+    //     'role' => UserRules::class,
+    // ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -37,7 +40,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        // 'password',
+        'password',
         'two_factor_secret',
         'two_factor_recovery_codes',
         'remember_token',
@@ -55,5 +58,12 @@ class User extends Authenticatable
             'password' => 'hashed',
             'two_factor_confirmed_at' => 'datetime',
         ];
+    }
+
+        // on cree les relations
+
+    public function projet() : hasMany
+    {
+        return $this->hasMany(Projet::class);
     }
 }
