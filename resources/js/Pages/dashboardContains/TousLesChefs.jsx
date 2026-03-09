@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaArrowRight, FaBriefcase, FaCheckCircle, FaSearch, FaStepForward } from "react-icons/fa";
 
-export default function TousLesProjets(){
+export default function TousLesChefs(){
 
     // const [choice, setChoice] = useState(false)
 
@@ -16,9 +16,9 @@ export default function TousLesProjets(){
 
     return(
         <div className="py-5 mx-5">
-            <div className="flex border xl:w-1/2 rounded-full focus-within:border-blue-500 focus-within:ring-1 border-gray-300 h-12 mx-2 pb-3">
+            <div className="flex border xl:w-1/2 rounded-full focus-within:border-blue-500 bg-white focus-within:ring-1 border-gray-300 h-12 mx-2 pb-3">
                 <FaSearch className="mx-2 my-3 size-6 text-blue-500"></FaSearch>
-                <input type="search" className="w-full mr-6 outline-none focus:ring-0 border-none h-11" placeholder="Rechercher" name="" id="" />
+                <input type="search" className="w-full mr-6 outline-none focus:ring-0  border-none h-11" placeholder="Rechercher un chef de projet" name="" id="" />
             </div>
             <div className=" grid gap-3 pt-5 xl:grid-cols-3 sm:grid-cols-2" >
 
