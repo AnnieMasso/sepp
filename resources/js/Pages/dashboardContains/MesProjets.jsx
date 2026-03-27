@@ -1,5 +1,7 @@
 import { FaPlus, FaPlusCircle, FaPlusSquare } from "react-icons/fa"
 import { FaSearch } from "react-icons/fa";
+import { Link } from "@inertiajs/react";
+
 
 export default function MesProjets(){
 
@@ -59,9 +61,14 @@ export default function MesProjets(){
             {/* contenu de tous les projets */}
             <div className=" h-fit p-2 ">
                 
-                <div className="flex border md:w-1/2 rounded-full focus-within:border-blue-500 bg-white focus-within:ring-1 border-gray-300 h-12 mx-2 pb-3">
-                    <FaSearch className="mx-2 my-3 size-6 text-blue-500"></FaSearch>
-                        <input type="search" className="w-full mr-6 outline-none focus:ring-0  border-none h-11" placeholder="Rechercher un projet" name="" id="" />
+                <div className="flex">
+                    <div className="flex border md:w-1/2 rounded-full focus-within:border-blue-500 bg-white focus-within:ring-1 border-gray-300 h-12 mx-2 pb-3">
+                        <FaSearch className="mx-2 my-3 size-6 text-blue-500"></FaSearch>
+                        <input type="search" className="w-full mr-6 outline-none focus:ring-0  border-none h-11" placeholder="Rechercher un projet" name="" id="" />                    
+                    </div>
+                    <div className="m-auto">
+                        <Link to={route('nouveauprojet')} className="rounded px-3 py-2 bg-blue-700 flex text-white" > <FaPlus className="pt-1"></FaPlus> Ajouter un projet</Link>
+                    </div>
                 </div>
                 
                 <div className="h-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 m-auto my-2" >

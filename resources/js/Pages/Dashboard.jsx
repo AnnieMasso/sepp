@@ -3,7 +3,7 @@ import { Head, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import { FaBars, FaBriefcase, FaCode, FaServer, FaFileAlt, FaFolder, FaProjectDiagram, FaRProject, FaTasks, FaTimes, FaTable, FaUser } from 'react-icons/fa';
 import MesProjets from './dashboardContains/MesProjets';
-import Gantt from './dashboardContains/Gantt';
+import Gantt from './dashboardContains/Gantt/Gantt';
 import Rapports from './dashboardContains/Rapports';
 import Données from './dashboardContains/Données';
 import TousLesChefs from './dashboardContains/TousLesChefs';
@@ -93,7 +93,7 @@ export default function Dashboard() {
                                     Voir les profils des chefs
                                 </a>
                                 {/* <Link href={route('tousleschefsdeprojet')} as="button" method='get' >chefs</Link> */}
-                                <a onClick={()=>{setShowDashboardContains('gantt'); setShowBoard(false)}} className='bg-blue-700 cursor-pointer flex flex-row gap-2 text-left p-3 w-full rounded hover:bg-blue-800 transition'>
+                                <a href={route('gantt')} className='bg-blue-700 cursor-pointer flex flex-row gap-2 text-left p-3 w-full rounded hover:bg-blue-800 transition'>
                                     <FaProjectDiagram className='mt-1'/>
                                     Gantt
                                 </a>
@@ -120,9 +120,9 @@ export default function Dashboard() {
                             <TousLesChefs/>
                         )}
                         {/* div pour gantt */}
-                        {showDashboardContains =='gantt'&&(
+                        {/* {showDashboardContains =='gantt'&&(
                             <Gantt/>
-                        )}
+                        )} */}
                         {/* div pour les rapports */}
                         {showDashboardContains =='rapports'&&(
                             <Rapports/>
