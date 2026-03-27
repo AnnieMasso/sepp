@@ -32,19 +32,24 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/touslesprojets', function(){
+Route::get('/dashboard/touslesprojets', function(){
     return Inertia::render('dashboardContains/TousLesProjets');
 })->name('touslesprojets');
 
 // route pour les nouveaux projets
-Route::get('/nouveauprojet', function(){
+Route::get('/dashboard/touslesprojets/nouveauprojet', function(){
     return Inertia::render('dashboardContains/NewProject');
 })->name('nouveauprojet');
 
 // route pour tous les chefs de projets
 
-Route::get('tousleschefsdeprojet',function(){
+Route::get('/tousleschefsdeprojet',function(){
     return Inertia::render('dashboardContains/TousLesChefs');
 })->name('tousleschefsdeprojet');
+
+// route pour le diagramme de get_html_translation_table
+Route::get('/dashbord/gantt', function(){
+    return Inertia::render('dashboardContains/Gantt/Gantt');
+})->name('gantt');
 
 require __DIR__.'/auth.php';
