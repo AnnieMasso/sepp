@@ -7,6 +7,7 @@ import Gantt from './dashboardContains/Gantt/Gantt';
 import Rapports from './dashboardContains/Rapports';
 import Données from './dashboardContains/Données';
 import TousLesChefs from './dashboardContains/TousLesChefs';
+import TableauDeBord from './dashboardContains/TableauDeBord';
 import {Link} from '@inertiajs/react';
 
 export default function Dashboard() {
@@ -52,6 +53,10 @@ export default function Dashboard() {
                                 <FaTimes className='size-6' />
                             </button> 
                             <nav className="flex flex-col gap-3">
+                                <a onClick={()=>{setShowDashboardContains('tableaudebord'); setShowBoard(false)}} className='bg-blue-700 flex flex-row gap-2 cursor-pointer text-left p-3 w-full rounded hover:bg-blue-800 transition'>
+                                    <FaBriefcase className='mt-1'></FaBriefcase>
+                                    Tableau de bord
+                                </a>
                                 <a onClick={()=>{setShowDashboardContains('mesprojets'); setShowBoard(false)}} className='bg-blue-700 flex flex-row gap-2 cursor-pointer text-left p-3 w-full rounded hover:bg-blue-800 transition'>
                                     <FaBriefcase className='mt-1'></FaBriefcase>
                                     Mes projets
@@ -80,10 +85,14 @@ export default function Dashboard() {
                 )}
 
                 <div className='flex'>
-                    {/* sidebar sur écran large */}
+                    {/* sidebar sur unw écran large */}
                     <div className='hidden h-screen sticky top-16 w-1/2 xl:flex'>
                         <div className='p-6 h-full pt-10 bg-blue-600 opacity-95 text-white shadow-xl'>
                             <nav className="flex flex-col gap-3">
+                                <a onClick={()=>{setShowDashboardContains('tableaudebord'); setShowBoard(false)}} className='bg-blue-700 cursor-pointer flex flex-row gap-2 text-left p-3 w-full rounded hover:bg-blue-800 transition'>
+                                    <FaBriefcase className='mt-1'></FaBriefcase>
+                                    Tableau de bord
+                                </a>
                                 <a onClick={()=>{setShowDashboardContains('mesprojets'); setShowBoard(false)}} className='bg-blue-700 cursor-pointer flex flex-row gap-2 text-left p-3 w-full rounded hover:bg-blue-800 transition'>
                                     <FaBriefcase className='mt-1'></FaBriefcase>
                                     Mes projets
@@ -111,6 +120,10 @@ export default function Dashboard() {
                     </div>
 
                     <div className={` ${showBoard ? 'blur-sm' : ''} `}>
+                        {/* div pour le tableau de bord */}
+                        {showDashboardContains =="tableaudebord" &&(
+                            <TableauDeBord/>
+                        )}
                         {/* div pour mes projets */}
                         {showDashboardContains =="mesprojets" &&(
                             <MesProjets/>

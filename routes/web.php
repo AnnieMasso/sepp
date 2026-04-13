@@ -37,7 +37,7 @@ Route::get('/dashboard/touslesprojets', function(){
 })->name('touslesprojets');
 
 // route pour les nouveaux projets
-Route::get('/dashboard/touslesprojets/nouveauprojet', function(){
+Route::get('/dashboard/nouveauprojet', function(){
     return Inertia::render('dashboardContains/NewProject');
 })->name('nouveauprojet');
 
@@ -47,9 +47,21 @@ Route::get('/tousleschefsdeprojet',function(){
     return Inertia::render('dashboardContains/TousLesChefs');
 })->name('tousleschefsdeprojet');
 
-// route pour le diagramme de get_html_translation_table
+// route pour le diagramme de gantt
 Route::get('/dashbord/gantt', function(){
     return Inertia::render('dashboardContains/Gantt/Gantt');
 })->name('gantt');
+
+// route pour les details d'un projets
+
+Route::get('dashboard/projet-X', function(){
+    return Inertia::render('dashboardContains/DetailsProjet');
+})->name('detailprojet');
+
+// route pour les details des taches
+
+Route::get('dashboard/projet-X/tache-X', function(){
+    return Inertia::render('dashboardContains/DetailsTaches');
+})->name('detailtache');
 
 require __DIR__.'/auth.php';
