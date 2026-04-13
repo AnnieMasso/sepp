@@ -6,13 +6,14 @@ import { Link } from "@inertiajs/react";
 export default function MesProjets(){
 
     const projets = [
+
         {
             clé : 1,
             nom :'Application de suivi et d évaluation des projets',
             description : "Cette application permet de géré et d'évaluer efficacement les projets, peu importe le domaine d'excecution",
             montant : 25000,
             chef : 'Annie Carelle',
-            statut : "terminé",
+            statut : "100% terminé",
             date : "25/10/2025"
         },
         {
@@ -21,7 +22,7 @@ export default function MesProjets(){
             description : "Cette application permet de géré et d'évaluer efficacement les projets, peu importe le domaine d'excecution",
             montant : 25000,
             chef : 'Carelle',
-            statut : "En cours",
+            statut : "66% En cours",
             date : "25/10/2025"
         },
         {
@@ -30,7 +31,7 @@ export default function MesProjets(){
             description : "Cette application permet de géré et d'évaluer efficacement les projets, peu importe le domaine d'excecution",
             montant : 25000,
             chef : 'Carelle',
-            statut : "En cours",
+            statut : " 53% En cours",
             date : "25/10/2025"
         },
         {
@@ -39,7 +40,7 @@ export default function MesProjets(){
             description : "Cette application permet de géré et d'évaluer efficacement les projets, peu importe le domaine d'excecution",
             montant : 25000,
             chef : 'Carelle',
-            statut : "En cours",
+            statut : " 39% En cours",
             date : "25/10/2025"
         },
         {
@@ -48,10 +49,11 @@ export default function MesProjets(){
             description : "Cette application permet de géré et d'évaluer efficacement les projets, peu importe le domaine d'excecution",
             montant : 25000,
             chef : 'Carelle',
-            statut : "En cours",
+            statut : " 22% En cours",
             date : "25/10/2025"
         }
     ]
+    
     return(
         <div className="overflow-y-auto">
             {/* <div className="grid mt-6 ml-16  static grid-flow-col ">
@@ -67,11 +69,11 @@ export default function MesProjets(){
                         <input type="search" className="w-full mr-6 outline-none focus:ring-0  border-none h-11" placeholder="Rechercher un projet" name="" id="" />                    
                     </div>
                     <div className="m-auto">
-                        <Link to={route('nouveauprojet')} className="rounded px-3 py-2 bg-blue-700 flex text-white" > <FaPlus className="pt-1"></FaPlus> Ajouter un projet</Link>
+                        <Link href={route('nouveauprojet')} className="rounded px-3 py-2 bg-blue-700 flex text-white" > <FaPlus className="pt-1"></FaPlus> Ajouter un projet</Link>
                     </div>
                 </div>
                 
-                <div className="h-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 m-auto my-2" >
+                <div className="h-auto grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 m-auto my-2" >
 
                     <a href={route('nouveauprojet')} className="">
                         <div className="border h-auto my-3 rounded px-3 text-green-700 text-2xl border-green-300 text-center py-16 md:py-36">
@@ -80,7 +82,7 @@ export default function MesProjets(){
                         </div>
                     </a>
                     {projets.map(projet=>
-                        <button key={projet.clé} className="border text-left my-1 px-3 pb-2 py-5 border-blue-300 rounded-md w-full ">
+                        <a key={projet.clé} href={route('detailprojet')} className="border text-left my-1 px-3 pb-2 py-5 border-blue-300 rounded-md w-full ">
                             <span className="text-blue-700 font-semibold font-serif text-2xl"> {projet.nom} </span> <br /> <br />
                             <span className="text-l style "> {projet.description} </span> <br /> <br />
                             <span className="text-blue-700 font-bold"> {projet.montant} </span><br />
@@ -89,7 +91,7 @@ export default function MesProjets(){
                             <div className="text-end mt-4">
                                 <span className="ml-auto text-xs font-thin">Crée le {projet.date}</span><br />
                             </div>
-                        </button>          
+                        </a>          
                     )}
                 </div>
             </div>
